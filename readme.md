@@ -1,5 +1,5 @@
 # The Repository SampleCode
-The repository **SampleCode** Sample of Coding, and Modular Software Development I have learnt and can produce and deliver.
+The repository **SampleCode** dummy repository of sample of coding, and modularisation of software development I have learnt; and can produce, and deliver.
 The Platform, Programing Language, and Packages I can work with are:
 1. Platform
 > 1. Linux (Local/Server)
