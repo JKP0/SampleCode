@@ -1,0 +1,31 @@
+##############GEN GIT Ignore START#####################
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+
+# Default ignored files
+.idea
+*.ipynb_checkpoints
+*.ipynb
+*__pycache__/
+venv
+.gitignore.swp
+
+##############GEN GIT Ignore END#####################
+
+#######################################
+#######################################
+
+##############ASR GIT Ignore START#####################
+# data dirs
+
+#######################################
+
+

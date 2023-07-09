@@ -1,0 +1,13 @@
+# Ignore everything so that docker build won't need to upload the 5GB and more files to docker build location
+**
+
+# Allow files and directories
+!/requirements.txt
+!/tmp/.cache/**
+
+# Ignore unnecessary files inside allowed directories
+# This should go after the allowed directories
+**/*~
+**/data/data/var_lib_mysql/*
+**/data/data/etc_mysql/*
+**/data/data/etc_alternatives/*
