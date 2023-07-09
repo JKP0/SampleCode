@@ -6,12 +6,14 @@ The Platform, Programing Language, and Packages I can work with are:
 > 2. Windows
 > 3. Docker
 > 4. Kubernetes
-> 5. Conda
+> 5. Package Managers: apt, conda, pip
+> 6. IDE: Jupyter-Notebook, PyCharm Community Edition, Python IDLE
 2. Programing Language
 > 1. Python (Fluent/Learner/Expert)
 > 2. R (Basic/Learner)
 > 3. C/CPP (Basic/Learner)
-> 3. HTML (Basic/Learner)
+> 4. HTML (Basic/Learner)
+> 5. Shell Scripts (Basic/Learner)
 3. Packages
 > 1. Numpy
 > 2. Pandas
