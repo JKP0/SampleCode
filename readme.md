@@ -25,3 +25,5 @@ The Platform, Programing Language, and Packages I can work with are:
 > 11. OpenCV
 > 12. Soundfile (PySoundfile)
 > 13. Librosa, Numba, etc..
+
+**Some more updates to the repository will come soon**
