@@ -5,7 +5,8 @@ The Platform, Programing Language, and Packages I can work with are:
 > 1. Linux (Local/Server)
 > 2. Windows
 > 3. Docker
-> 4. Kubernetes 
+> 4. Kubernetes
+> 5. Conda
 2. Programing Language
 > 1. Python (Fluent/Learner/Expert)
 > 2. R (Basic/Learner)
