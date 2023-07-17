@@ -1,0 +1,12 @@
+{
+  "model_name": "roberta-base",
+  "pre_classifier_fc_units": 32,
+  "pre_classifier_activation": null,
+  "classifier_activation": null,
+  "learning_rate": 0.0001,
+  "batch_size": 32,
+  "epochs": 10,
+  "validation_fraction": 0.18,
+  "loss_name": "scce",
+  "training_monitor": "val_acc"
+}

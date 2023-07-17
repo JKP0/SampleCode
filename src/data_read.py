@@ -1,16 +1,17 @@
 import os
 import pandas as pd
 
-from constants import DrC
+from utils import DrU
 
 
 class DataInitialView(object):
-    def __assign_labels_toread(self, data_dir):
-        readme_path = os.path.join(data_dir, DrC.file_data_readme)
+    def __assign_labels_to_read(self, data_dir):
+        readme_path = os.path.join(data_dir, DrU.file_data_readme)
 
-        tag_catch = "List of the 12 different vaccine concerns in the datasets"
+        tag_catch = "List of the 12 different vaccine concerns in the dataset"
 
         with open(readme_path) as txt:
+
             text_contents = txt.readlines()
 
         read_not_class = True
@@ -28,7 +29,7 @@ class DataInitialView(object):
 
             label_id += 1
 
-        self.labels_to_read[label_id] = DrC.add_class_others
+        self.labels_to_read[label_id] = DrU.add_class_others
 
         return True
 
@@ -40,35 +41,51 @@ class DataInitialView(object):
                 labels_dist[e] = v
 
             else:
-                labels_dist[DrC.add_class_others] = labels_dist[DrC.add_class_others] + v
+                labels_dist[DrU.add_class_others] = labels_dist[DrU.add_class_others] + v
 
         labels_dist = sorted(labels_dist.items(), key=lambda e: e[1], reverse=True)
         return dict(labels_dist)
 
     def __assign_trainable_label(self):
-        self.data_df[DrC.add_col_train_label] = None
+        self.data_df[DrU.add_col_train_label] = None
 
         for i in range(self.data_df.shape[0]):
-            current_label = self.data_df.at[i, DrC.data_col_lables]
+            current_label = self.data_df.at[i, DrU.data_col_labels]
 
             if current_label.strip().lower() in self.labels_to_read.values():
-                self.data_df.at[i, DrC.add_col_train_label] = current_label.strip().lower()
+                self.data_df.at[i, DrU.add_col_train_label] = current_label.strip().lower()
             else:
-                self.data_df.at[i, DrC.add_col_train_label] = DrC.add_class_others
+                self.data_df.at[i, DrU.add_col_train_label] = DrU.add_class_others
+
+        if self.test_data_df is not None:
+            self.test_data_df[DrU.add_col_train_label] = None
+
+            for i in range(self.test_data_df.shape[0]):
+                current_label = self.test_data_df.at[i, DrU.data_col_labels]
+
+                if current_label.strip().lower() in self.labels_to_read.values():
+                    self.test_data_df.at[i, DrU.add_col_train_label] = current_label.strip().lower()
+                else:
+                    self.test_data_df.at[i, DrU.add_col_train_label] = DrU.add_class_others
 
         return True
 
     def __init__(self, data_dir=None):
         if data_dir is None:
-            data_dir = DrC.drive_project_dir
-        self.data_path = os.path.join(data_dir, DrC.file_data_train_val)
+            data_dir = DrU.dir_dataset
 
+        self.data_path = os.path.join(data_dir, DrU.file_data_train_val)
         self.data_df = pd.read_csv(self.data_path)
-
         print("ColumnsInData", self.data_df.columns)
 
+        self.test_data_path = os.path.join(data_dir, DrU.file_data_test)
+        if os.path.exists(self.test_data_path):
+            self.test_data_df = pd.read_csv(self.test_data_path)
+        else:
+            self.test_data_df = None
+
         self.labels_to_read = {}
-        self.__assign_labels_toread(data_dir)
+        self.__assign_labels_to_read(data_dir)
         print("Labels To Be Read", self.labels_to_read)
 
         self.labels_dist = self.__update_label_dist()
